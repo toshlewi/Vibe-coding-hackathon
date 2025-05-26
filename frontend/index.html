@@ -1,0 +1,78 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediSync – Smart Follow-Up</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>MediSync</h1>
+    <p>AI-powered follow-up reminders for clinics and patients</p>
+  </header>
+
+  <main>
+    <div class="btn-group">
+      <a href="doctor.html" class="btn">Doctor Login</a>
+      <a href="patient.html" class="btn">Patient Login</a>
+    </div>
+    <form id="followUpForm" class="p-4">
+  <div class="form-group">
+    <label for="patientName">Patient Name</label>
+    <input type="text" class="form-control" id="patientName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="diagnosis">Diagnosis</label>
+    <input type="text" class="form-control" id="diagnosis" required>
+  </div>
+
+  <div class="form-group">
+    <label for="followUpDate">Follow-Up Date</label>
+    <input type="date" class="form-control" id="followUpDate" required>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number (e.g. +2547XXXXXXX)</label>
+    <input type="tel" class="form-control" id="phone" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Create Follow-Up</button>
+</form>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MediSync</p>
+  </footer>
+
+  <script>
+document.getElementById("followUpForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const data = {
+    patientName: document.getElementById("patientName").value,
+    diagnosis: document.getElementById("diagnosis").value,
+    followUpDate: document.getElementById("followUpDate").value,
+    phone: document.getElementById("phone").value
+  };
+  try {
+    const res = await fetch("http://localhost:5000/api/visits", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      alert("✅ Follow-up created!");
+      document.getElementById("followUpForm").reset();
+    } else {
+      alert("❌ Failed to create follow-up.");
+    }
+  } catch (err) {
+    alert("❌ Error connecting to backend.");
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* css/styles.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9fdfd;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  padding: 2rem;
+  background-color: #4db6ac;
+  color: white;
+}
+
+.btn-group {
+  margin: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: #00796b;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #004d40;
+}
+
+footer {
+  margin-top: 3rem;
+  color: #777;
+}
+.panel {
+  background: #ffffff;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+form input, form button {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form button {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+form button:hover {
+  background-color: #004d40;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
